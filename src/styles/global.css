@@ -1,0 +1,33 @@
+@import "tailwindcss";
+@import "saboteur-styles/styles/saboteur-base.css";
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-brand-red);
+  color: var(--color-brand-white);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-interactive);
+  outline-offset: 2px;
+}
+
+/*
+  Local addition — not a base token.
+
+  The Japanese tier of the parent mark (サボタージ員) has no glyph coverage in
+  IBM Plex Sans, so it would fall back to a system font and break the mark.
+  IBM Plex Sans JP is the same typeface family, self-hosted via @fontsource.
+  Applied alongside font-sans, never on its own.
+*/
+.font-jp {
+  font-family: "IBM Plex Sans JP", var(--font-sans);
+}

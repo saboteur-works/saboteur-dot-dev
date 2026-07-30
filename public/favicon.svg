@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    .bg     { fill: #0a0a0a; }
+    .border { fill: none; stroke: #f5f4f0; stroke-width: 1; }
+    .mark   { fill: #f5f4f0; }
+    @media (prefers-color-scheme: light) {
+      .bg     { fill: #f5f4f0; }
+      .border { stroke: #0a0a0a; }
+      .mark   { fill: #0a0a0a; }
+    }
+  </style>
+  <rect width="64" height="64" rx="6" class="bg"/>
+  <rect width="64" height="64" rx="6" class="border"/>
+  <text
+    x="32"
+    y="56"
+    text-anchor="middle"
+    font-family="'IBM Plex Sans', sans-serif"
+    font-weight="700"
+    font-size="54"
+    class="mark"
+  >員</text>
+</svg>

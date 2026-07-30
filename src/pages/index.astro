@@ -1,0 +1,24 @@
+---
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import Mission from "../components/Mission.astro";
+import ProductsPreview from "../components/ProductsPreview.astro";
+import Status from "../components/Status.astro";
+import LegalFooter from "../components/LegalFooter.astro";
+---
+<Base
+  title="Saboteur — Creator-First Software"
+  description="We build tools for people who make things. No lock-in. No committees. No feature designed by a growth team. Just software that respects the work."
+  ogImage="/assets/og-card.png"
+  ogImageWidth={1228}
+  ogImageHeight={638}
+  ogImageAlt="The Saboteur wordmark — SABOTEUR above サボタージ員, with a red vertical bar at the left."
+>
+  <Nav />
+  <Hero />
+  <Mission />
+  <ProductsPreview />
+  <Status />
+  <LegalFooter />
+</Base>
