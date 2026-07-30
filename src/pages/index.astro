@@ -16,9 +16,12 @@ import LegalFooter from "../components/LegalFooter.astro";
   ogImageAlt="The Saboteur wordmark — SABOTEUR above サボタージ員, with a red vertical bar at the left."
 >
   <Nav />
-  <Hero />
-  <Mission />
-  <ProductsPreview />
-  <Status />
+  {/* Skip-link target and the page's single main landmark. */}
+  <main id="main">
+    <Hero />
+    <Mission />
+    <ProductsPreview />
+    <Status />
+  </main>
   <LegalFooter />
 </Base>
