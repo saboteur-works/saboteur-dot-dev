@@ -8,7 +8,12 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "policies:render": "saboteur-render-policies --config ./policy.config.json --out ./src/pages",
+    "policies:check": "saboteur-render-policies --config ./policy.config.json --out ./src/pages --check",
+    "policies:audit": "saboteur-audit-processors --config ./policy.config.json --dist ./dist",
+    "policies:upstream": "saboteur-check-upstream",
+    "ci": "npm run policies:check && npm run build && npm run policies:audit"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
@@ -19,6 +24,7 @@
     "@tailwindcss/vite": "^4.0.0",
     "astro": "^5.0.0",
     "saboteur-styles": "github:saboteur-works/saboteur-styles",
+    "saboteur-sites": "github:saboteur-works/saboteur-sites",
     "tailwindcss": "^4.0.0"
   },
   "devDependencies": {
