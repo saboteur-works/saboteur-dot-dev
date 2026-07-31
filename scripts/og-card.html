@@ -1,0 +1,96 @@
+<!doctype html>
+<!--
+  OG card source — rendered to public/assets/og-card.png by `npm run og:card`.
+
+  The card IS the hero mark: same three tiers, same red structural bar, same
+  brand tokens, on brand-black. Generating it from markup instead of an image
+  editor means the card can never drift from the mark on the page, and the
+  fonts are the same self-hosted IBM Plex files the site ships.
+
+  Sizes are absolute px rather than the hero's clamp() — the canvas is a fixed
+  1200x630 (sections/SHARED-image-rules.md §Asset conventions), so there is
+  nothing to scale against.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../node_modules/@fontsource/ibm-plex-sans-condensed/700.css" />
+    <link rel="stylesheet" href="../node_modules/@fontsource/ibm-plex-sans-jp/700.css" />
+    <link rel="stylesheet" href="../node_modules/@fontsource/ibm-plex-mono/400.css" />
+    <style>
+      /* Mirrors saboteur-styles/styles/saboteur-base.css. Duplicated as literals
+         because this file renders outside the Astro/Tailwind pipeline. */
+      :root {
+        --color-brand-black: #0a0a0a;
+        --color-brand-red: #d44040;
+        --color-brand-dim: #2e2e2c;
+        --color-fg-primary: #f5f4f0;
+        --color-fg-tertiary: #888680;
+        --font-display: "IBM Plex Sans Condensed", sans-serif;
+        --font-jp: "IBM Plex Sans JP", sans-serif;
+        --font-mono: "IBM Plex Mono", monospace;
+        --tracking-wordmark: -0.04em;
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      html, body {
+        width: 1200px;
+        height: 630px;
+        background: var(--color-brand-black);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mark {
+        display: flex;
+        flex-direction: column;
+        border-left: 5px solid var(--color-brand-red);
+        padding-left: 62px;
+      }
+
+      .wordmark {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 189px;
+        letter-spacing: var(--tracking-wordmark);
+        line-height: 1;
+        color: var(--color-fg-primary);
+      }
+
+      .jp {
+        font-family: var(--font-jp);
+        font-weight: 700;
+        font-size: 65px;
+        letter-spacing: 0.16em;
+        line-height: 1;
+        color: var(--color-fg-primary);
+        margin-top: 20px;
+      }
+
+      .descriptor {
+        font-family: var(--font-mono);
+        font-weight: 400;
+        font-size: 21px;
+        letter-spacing: 0.18em;
+        line-height: 1;
+        color: var(--color-fg-tertiary);
+        border-top: 1px solid var(--color-brand-dim);
+        padding-top: 22px;
+        margin-top: 29px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mark">
+      <span class="wordmark">SABOTEUR</span>
+      <span class="jp">サボタージ員</span>
+      <span class="descriptor">CREATOR-FIRST SOFTWARE — saboteur.dev</span>
+    </div>
+  </body>
+</html>

@@ -13,6 +13,7 @@
     "policies:check": "saboteur-render-policies --config ./policy.config.json --out ./src/pages --check",
     "policies:audit": "saboteur-audit-processors --config ./policy.config.json --dist ./dist",
     "policies:upstream": "saboteur-check-upstream",
+    "og:card": "\"${CHROME:-/Applications/Google Chrome.app/Contents/MacOS/Google Chrome}\" --headless --disable-gpu --hide-scrollbars --allow-file-access-from-files --force-device-scale-factor=1 --window-size=1200,630 --screenshot=public/assets/og-card.png \"file://$PWD/scripts/og-card.html\"",
     "ci": "npm run policies:check && npm run build && npm run policies:audit"
   },
   "dependencies": {
