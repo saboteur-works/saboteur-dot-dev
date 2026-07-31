@@ -16,7 +16,13 @@ interface Props {
   ogImageWidth?: number;
   ogImageHeight?: number;
   ogImageAlt?: string;
+  /** JSON-LD object. Per-variant shapes: saboteur-sites/tech/seo.md */
+  jsonLd?: Record<string, unknown>;
 }
+
+// The site's name as a person says it, not the domain.
+const SITE_NAME = "Saboteur";
+
 const {
   title,
   description,
@@ -24,10 +30,19 @@ const {
   ogImageWidth = 1200,
   ogImageHeight = 630,
   ogImageAlt,
+  jsonLd,
 } = Astro.props;
-const canonical = Astro.site?.toString() ?? "";
-const ogImageUrl =
-  ogImage && Astro.site ? new URL(ogImage, Astro.site).toString() : ogImage;
+
+// Per-page canonical, not the site root. Astro.site is the production origin, so
+// preview deploys on *.pages.dev still point search engines at production.
+const origin = Astro.site ?? new URL("https://saboteur.dev");
+const canonical = new URL(Astro.url.pathname, origin).toString();
+const ogImageUrl = ogImage ? new URL(ogImage, origin).toString() : undefined;
+
+// Escape the closing-tag sequence so page data can never break out of the script.
+const jsonLdText = jsonLd
+  ? JSON.stringify(jsonLd).replace(/</g, "\\u003c")
+  : undefined;
 ---
 <!doctype html>
 <html lang="en">
@@ -38,6 +53,11 @@ const ogImageUrl =
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    {/* brand-black. A hex literal is unavoidable here — meta content can't read a CSS token. */}
+    <meta name="theme-color" content="#0A0A0A" />
+
+    <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
@@ -50,10 +70,14 @@ const ogImageUrl =
         {ogImageAlt && <meta property="og:image:alt" content={ogImageAlt} />}
       </>
     )}
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content={ogImageUrl ? "summary_large_image" : "summary"} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
+
+    {jsonLdText && (
+      <script type="application/ld+json" is:inline set:html={jsonLdText} />
+    )}
   </head>
   <body class="bg-brand-black text-fg-primary">
     {/* Skip link — the first focusable element on every page, per

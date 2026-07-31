@@ -6,10 +6,24 @@ import Mission from "../components/Mission.astro";
 import ProductsPreview from "../components/ProductsPreview.astro";
 import Status from "../components/Status.astro";
 import LegalFooter from "../components/LegalFooter.astro";
+
+// Organization is the parent variant's shape. sameAs is what ties the products'
+// separate domains back to one publisher — see saboteur-sites/tech/seo.md.
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Saboteur LLC",
+  alternateName: "Saboteur",
+  url: "https://saboteur.dev",
+  description:
+    "I build tools for people who make things. No lock-in. No committees. No feature designed by a growth team. Just software that respects the work.",
+  sameAs: ["https://github.com/saboteur-works"],
+};
 ---
 <Base
-  title="Saboteur — Creator-First Software"
+  title="Saboteur — Creator-first software"
   description="I build tools for people who make things. No lock-in. No committees. No feature designed by a growth team. Just software that respects the work."
+  jsonLd={jsonLd}
   ogImage="/assets/og-card.png"
   ogImageWidth={1228}
   ogImageHeight={638}

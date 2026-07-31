@@ -38,7 +38,7 @@
   ],
 
   "_allowedHosts_note": "Hosts a visitor only reaches by clicking a link. An outbound link is not a data transfer, so these need no disclosure. Anything the browser fetches automatically belongs in `processors` instead.",
-  "allowedHosts": ["offbeat-fm.com", "getwrite.app"],
+  "allowedHosts": ["offbeat-fm.com", "getwrite.app", "github.com"],
 
   "pages": {
     "privacy": {},
