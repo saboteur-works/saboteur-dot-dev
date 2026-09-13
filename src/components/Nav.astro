@@ -1,14 +1,16 @@
 ---
 // Nav — minimal variant, parent tier.
-// Reduced mark (wordmark + Japanese, no descriptor) + two quiet mono links.
-// No hamburger: with two short links the row fits down to 320px, so the page
+// Reduced mark (wordmark + Japanese, no descriptor) + three quiet mono links.
+// No hamburger: with three short links the row fits down to 320px, so the page
 // ships without any client-side JavaScript.
 //
-// The section links are in-page anchors, so they only work on a page that
-// contains those sections. Standalone pages (/privacy, /terms) pass
-// showSections={false}; the mark alone carries the way back. Rendering an
-// anchor to a section that isn't on the page gives you a control that looks
-// live and does nothing.
+// showSections means "render the in-page anchor links", not "render any links".
+// Anchors only work on a page that contains those sections, so standalone pages
+// (/privacy, /terms, a post) pass showSections={false} — rendering an anchor to
+// a section that isn't on the page gives you a control that looks live and does
+// nothing. Route links like /blog are unconditional and render everywhere.
+//
+// Four links is the cap. This nav is at three.
 
 interface Props {
   /** Render the in-page section links. False on standalone pages. */
@@ -28,19 +30,28 @@ const { showSections = true } = Astro.props;
     </span>
   </a>
 
-  {showSections && (
-    <ul class="ml-auto flex items-center gap-5">
-      <li>
-        <a href="#mission" class="font-mono text-[10px] tracking-[0.14em] text-fg-tertiary hover:text-fg-primary uppercase transition-colors duration-150">
-          Mission
-        </a>
-      </li>
-      <li>
-        <a href="#products" class="font-mono text-[10px] tracking-[0.14em] text-fg-tertiary hover:text-fg-primary uppercase transition-colors duration-150">
-          Products
-        </a>
-      </li>
-    </ul>
-  )}
+  <ul class="ml-auto flex items-center gap-5">
+    {showSections && (
+      <>
+        <li>
+          <a href="#mission" class="font-mono text-[10px] tracking-[0.14em] text-fg-tertiary hover:text-fg-primary uppercase transition-colors duration-150">
+            Mission
+          </a>
+        </li>
+        <li>
+          <a href="#products" class="font-mono text-[10px] tracking-[0.14em] text-fg-tertiary hover:text-fg-primary uppercase transition-colors duration-150">
+            Products
+          </a>
+        </li>
+      </>
+    )}
+    {/* A real route, so it renders on standalone pages too — dropping it there
+        would strand the reader with only the mark to get back. */}
+    <li>
+      <a href="/blog" class="font-mono text-[10px] tracking-[0.14em] text-fg-tertiary hover:text-fg-primary uppercase transition-colors duration-150">
+        Blog
+      </a>
+    </li>
+  </ul>
 
 </nav>
