@@ -18,7 +18,7 @@
     "liability_cap": "US$100",
     "governing_jurisdiction": "the State of Utah, United States",
     "mailing_address": "7533 S Center View Ct Ste N<br>West Jordan, UT 84084<br>United States",
-    "transfer_statement": "Cloudflare is based in the United States. Where data reaches it from the EU or UK, the transfer is governed by EU Standard Contractual Clauses (SCCs) under its Data Processing Agreement. This is the standard safeguard for transfers to the US after the Schrems II ruling."
+    "transfer_statement": "Cloudflare and Stripe are based in the United States. Where data reaches them from the EU or UK, the transfer is governed by a recognised transfer mechanism, such as EU Standard Contractual Clauses (SCCs), under each processor's Data Processing Agreement."
   },
 
   "_features_note": "This site is the parent landing page: no contact form (the footer mailto is the only route in), no analytics script, no embeds. payments is a link out to a Stripe payment page on /support; no Stripe script loads here.",
@@ -39,6 +39,13 @@
       "location": "United States",
       "hosts": [],
       "note": "Contacted as the host, never as a browser request to a Cloudflare domain. No hosts to scan for; leaving `hosts` empty tells the auditor not to expect one."
+    },
+    {
+      "name": "Stripe",
+      "purpose": "Processes contributions made through its hosted payment page.",
+      "location": "United States",
+      "hosts": [],
+      "note": "Reached only by a click on /support, never as a browser request from this site, so hosts is empty and its domains are in allowedHosts. Stripe's DPA names it a processor for payment processing and an independent controller for fraud prevention and its own legal obligations."
     }
   ],
 

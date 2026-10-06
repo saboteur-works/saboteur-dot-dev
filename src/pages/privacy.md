@@ -65,8 +65,9 @@ We use the following processors. Each processes data on Saboteur LLC's behalf un
 | Processor | What it does | Where it's based |
 |---|---|---|
 | Cloudflare, Inc. | Hosting (Cloudflare Pages) and edge logs. | United States |
+| Stripe | Processes contributions made through its hosted payment page. | United States |
 
-Stripe is not in the table above: it handles your payment under its own privacy policy, not on our behalf under a Data Processing Agreement. We receive the contribution details listed under *Contributions* from it.
+Stripe processes your payment on our behalf and is listed in the table above. It also acts as an independent controller for some of the data it receives when you pay, for example to detect and prevent fraud and to meet its own legal obligations, under its own privacy policy. We receive the contribution details listed under *Contributions* from it.
 
 We do not share personal data with third parties for advertising or marketing.
 
@@ -80,7 +81,7 @@ Because we do not sell or share personal data, there is nothing for a "Do Not Se
 
 ## International transfers
 
-Cloudflare is based in the United States. Where data reaches it from the EU or UK, the transfer is governed by EU Standard Contractual Clauses (SCCs) under its Data Processing Agreement. This is the standard safeguard for transfers to the US after the Schrems II ruling.
+Cloudflare and Stripe are based in the United States. Where data reaches them from the EU or UK, the transfer is governed by a recognised transfer mechanism, such as EU Standard Contractual Clauses (SCCs), under each processor's Data Processing Agreement.
 
 If you would like a copy of the Standard Contractual Clauses or Data Processing Agreements we have in place with these processors, write to **privacy@saboteur.dev**.
 
