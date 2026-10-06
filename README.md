@@ -22,7 +22,15 @@ npm run build   # production build → dist/
 
 ## Deploying
 
-Hosted on Cloudflare Pages. Push to `main` to deploy. Preview deploys on all branches.
+Hosted on Cloudflare Pages. The Pages project's production branch is `production`; every other branch, `main` included, gets a preview deploy only.
+
+To release, fast-forward `production` to the commit you want live:
+
+```bash
+git push origin main:production
+```
+
+A fast-forward-only push is deliberate: it refuses to publish anything that isn't already on `main`.
 
 ## Legal
 
