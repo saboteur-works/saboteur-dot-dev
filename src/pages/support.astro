@@ -1,0 +1,57 @@
+---
+// /support — a single page of prose and one outbound link.
+//
+// Reuses the Legal layout for its prose typography and standalone-page chrome
+// (Nav without section anchors, LegalFooter). Legal takes frontmatter because
+// its other users are markdown pages; here we pass the same shape by hand.
+//
+// The Stripe link is outbound-only, so donate.stripe.com is listed under
+// allowedHosts in policy.config.json rather than processors.
+import Legal from "../layouts/Legal.astro";
+
+const frontmatter = {
+  title: "Support — Saboteur",
+  description:
+    "Saboteur is a solo endeavor, and I release whatever I can for free. If my work helps you, here is how to support it, or how to help at no cost.",
+};
+---
+<Legal frontmatter={frontmatter}>
+  <h1>Support Saboteur</h1>
+
+  <p>
+    Saboteur is a solo endeavor, and I release whatever I can for free. I won’t
+    ever sell your data or engage in practices that make you a product.
+  </p>
+
+  <p>
+    If you feel something I’ve made benefits you, or you generally want to
+    support the work, you can help keep it going.
+  </p>
+
+  <p>
+    <a href="https://donate.stripe.com/00w8wR9UNg1k5V5crXc7u00" target="_blank" rel="noopener noreferrer">Support Saboteur →</a>
+  </p>
+
+  <p>
+    <strong>Where it goes:</strong> Cloud Infrastructure, development costs, and
+    time to research &amp; build instead of taking on other work, so I can focus
+    on providing tools that make your creative work easier to create and manage.
+  </p>
+
+  <p>
+    Support doesn’t unlock any special features and supporters aren’t treated
+    differently. Your support is a way to show thanks and appreciation. It’s not
+    a purchase.
+  </p>
+
+  <p>
+    Not in a position to chip in? I’ve been there. Telling someone about the
+    apps I’m working on, pointing people toward Saboteur, or reporting a bug
+    helps just as much.
+  </p>
+
+  <p>
+    Saboteur LLC is a business, not a nonprofit. Contributions aren’t
+    tax-deductible.
+  </p>
+</Legal>
