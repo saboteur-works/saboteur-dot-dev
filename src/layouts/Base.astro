@@ -83,7 +83,10 @@ const jsonLdText = jsonLd
       <script type="application/ld+json" is:inline set:html={jsonLdText} />
     )}
   </head>
-  <body class="bg-brand-black text-fg-primary">
+  <body class="bg-brand-black text-fg-primary min-h-dvh flex flex-col">
+    {/* The body is a column at least one viewport tall, and every page's <main>
+        takes flex-1, so the footer sits at the bottom of the window on a short
+        page instead of floating partway up it. */}
     {/* Skip link — the first focusable element on every page, per
         saboteur-sites/compliance/accessibility.md. Visually hidden until
         focused, then a sized control at top-left. Its target is the #main
