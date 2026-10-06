@@ -1,8 +1,11 @@
 ---
 // Nav — minimal variant, parent tier.
-// Reduced mark (wordmark + Japanese, no descriptor) + three quiet mono links.
-// No hamburger: with three short links the row fits down to 320px, so the page
-// ships without any client-side JavaScript.
+// Reduced mark (wordmark + Japanese, no descriptor) + up to four quiet mono links.
+// No hamburger, so the page ships without any client-side JavaScript. That only
+// works while the row fits: the mark plus four links does not fit a phone
+// (measured wrapping the Japanese tier at 412px), so the two in-page anchors are
+// hidden below `sm` and only the route links, Blog and Support, show there. The
+// anchors point at sections of a short single page that scrolls anyway.
 //
 // showSections means "render the in-page anchor links", not "render any links".
 // Anchors only work on a page that contains those sections, so standalone pages
@@ -21,11 +24,11 @@ const { showSections = true } = Astro.props;
 ---
 <nav class="sticky top-0 z-10 bg-brand-black border-b border-brand-rule flex items-center h-[52px] px-6">
 
-  <a href="/" class="flex items-baseline border-l-[3px] border-brand-red pl-3" aria-label="Saboteur — home">
+  <a href="/" class="flex items-baseline shrink-0 border-l-[3px] border-brand-red pl-3" aria-label="Saboteur — home">
     <span class="font-display font-bold text-fg-primary text-[17px] tracking-[-0.03em] leading-none">
       SABOTEUR
     </span>
-    <span class="font-sans font-jp font-bold text-fg-primary text-[10px] tracking-[0.1em] ml-2 leading-none">
+    <span class="font-sans font-jp font-bold text-fg-primary text-[10px] tracking-[0.1em] ml-2 leading-none whitespace-nowrap">
       サボタージ員
     </span>
   </a>
@@ -33,12 +36,12 @@ const { showSections = true } = Astro.props;
   <ul class="ml-auto flex items-center gap-5">
     {showSections && (
       <>
-        <li>
+        <li class="hidden sm:block">
           <a href="#mission" class="font-mono text-[10px] tracking-[0.14em] text-fg-tertiary hover:text-fg-primary uppercase transition-colors duration-150">
             Mission
           </a>
         </li>
-        <li>
+        <li class="hidden sm:block">
           <a href="#products" class="font-mono text-[10px] tracking-[0.14em] text-fg-tertiary hover:text-fg-primary uppercase transition-colors duration-150">
             Products
           </a>
