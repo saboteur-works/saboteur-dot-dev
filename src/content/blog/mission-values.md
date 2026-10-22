@@ -12,11 +12,11 @@ title: "Behind Saboteur: Mission and Values"
 # 140–160 characters, hard-capped at 160. This is the meta description, the
 # search snippet, and the RSS summary. Write it as the post's opening line, in
 # voice — not a keyword list, not a summary of a summary.
-description: I started Saboteur LLC with the intention of building a business that serves creators rather than exploiting them.
+description: I created Saboteur LLC because I believe software should serve creators instead of exploiting them.
 
 # Plain ISO day. No time, no timezone — the layouts format in UTC so a post
 # never shifts a day for a reader in another zone.
-pubDate: 2026-09-13
+pubDate: 2026-10-22
 
 # Uncomment only when a PUBLISHED post is materially revised. Fixing a typo is
 # not a revision.
@@ -25,7 +25,7 @@ pubDate: 2026-09-13
 # true until it is finished. A draft renders at `npm run dev` so you can read
 # it while writing, and is dropped from `npm run build` — no page, no URL, no
 # feed item. Flip to false when you want it live.
-draft: true
+draft: false
 
 # Optional. Self-hosted 1200x630 card under public/assets/. Never a third-party
 # host. ogImageAlt is REQUIRED whenever ogImage is set — the schema enforces it.
@@ -33,7 +33,7 @@ draft: true
 # ogImageAlt: TODO — what the card shows, not a marketing line.
 ---
 
-Software for creators has become a labyrinth of subscription services, paywalls, and your data in a cloud on someone else’s servers. I started Saboteur LLC with the intention of building a business that serves creators rather than exploiting them. Saboteur’s Mission and Values mirror that intention.
+I created Saboteur LLC because I believe software should serve creators instead of exploiting them. Software for creators has become a labyrinth of subscription services, paywalls, and your data in a cloud on someone else’s servers where you can lose access to it, or it can be used for LLM training without your knowledge, consent, or any compensation to you. Saboteur’s Mission and Values mirror that intention.
 
 ## The Saboteur Mission
 
